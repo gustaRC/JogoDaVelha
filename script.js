@@ -4,71 +4,258 @@ let pontos1 = document.getElementById("pontos1")
 let pontos2 = document.getElementById("pontos2")
 
 // primeira fileira
-let ci_esq = document.getElementById("ci_esq");
-let ci_ce = document.getElementById("ci_ce");
-let ci_dir = document.getElementById("ci_dir");
+let ci_esq = document.getElementById("n1");
+let Nci_esq = 0
+let ci_ce = document.getElementById("n2")
+let Nci_ce = 0
+let ci_dir = document.getElementById("n3");
+let Nci_dir = 0
 
 // segunda fileira
-let ce_esq = document.getElementById("ce_esq");
-let ce_ce = document.getElementById("ce_ce");
-let ce_dir = document.getElementById("ce_dir");
+let ce_esq = document.getElementById("n4");
+let Nce_esq = 0
+let ce_ce = document.getElementById("n5");
+let Nce_ce = 0
+let ce_dir = document.getElementById("n6");
+let Nce_dir = 0
 
 // terceira fileira
-let ba_esq = document.getElementById("ba_esq");
-let ba_ce = document.getElementById("ba_ce");
-let ba_dir = document.getElementById("ba_dir");
+let ba_esq = document.getElementById("n7");
+let Nba_esq = 0
+let ba_ce = document.getElementById("n8");
+let Nba_ce = 0
+let ba_dir = document.getElementById("n9");
+let Nba_dir = 0
 
-//player1
-function player1Click() {
-    ci_esq.addEventListener("click", () => (ci_esq.textContent = "X"));
-    ci_ce.addEventListener("click", () => (ci_ce.textContent = "X"));
-    ci_dir.addEventListener("click", () => (ci_dir.textContent = "X"));
-    ce_esq.addEventListener("click", () => (ce_esq.textContent = "X"));
-    ce_ce.addEventListener("click", () => (ce_ce.textContent = "X"));
-    ce_dir.addEventListener("click", () => (ce_dir.textContent = "X"));
-    ba_esq.addEventListener("click", () => (ba_esq.textContent = "X"));
-    ba_ce.addEventListener("click", () => (ba_ce.textContent = "X"));
-    ba_dir.addEventListener("click", () => (ba_dir.textContent = "X"));
-}
-let a1 = 0
-//player2
-
-var a2 = 0
-function player2Click() {
-        function ci_esqF(x, y) {
-            if(y <= 1) {
-                x.addEventListener("click", () => {
-                    x.textContent = "O"
-                    return console.log(y++)
-                });
-            } else{
-                console.log("opa, ja foi")
-            }
+//player 1
+function player1() {
+    // primeira linha
+    function Fci_esq() {
+        if (Nci_esq == 0) {
+            ci_esq.textContent = "X"
+            Nci_esq++
+        } else {
+            alert("Botão já precionado")
         }
-        ci_esqF(ci_esq, a1)
-        console.log(a1)
+    }
+    ci_esq.addEventListener("click", Fci_esq)
     
-    ci_ce.addEventListener("click", () => (ci_ce.textContent = "O"));
-    ci_dir.addEventListener("click", () => (ci_dir.textContent = "O"));
-    ce_esq.addEventListener("click", () => (ce_esq.textContent = "O"));
-    ce_ce.addEventListener("click", () => (ce_ce.textContent = "O"));
-    ce_dir.addEventListener("click", () => (ce_dir.textContent = "O"));
-    ba_esq.addEventListener("click", () => (ba_esq.textContent = "O"));
-    ba_ce.addEventListener("click", () => (ba_ce.textContent = "O"));
-    ba_dir.addEventListener("click", () => (ba_dir.textContent = "O"));
+    function Fci_ce() {
+        if (Nci_ce == 0) {
+            ci_ce.textContent = "X"
+            Nci_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ci_ce.addEventListener("click", Fci_ce)
+    
+    function Fci_dir() {
+        if (Nci_dir == 0) {
+            ci_dir.textContent = "X"
+            Nci_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ci_dir.addEventListener("click", Fci_dir)
+    
+    //segunda linha
+    function Fce_esq() {
+        if (Nce_esq == 0) {
+            ce_esq.textContent = "X"
+            Nce_esq++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_esq.addEventListener("click", Fce_esq)
+    
+    function Fce_ce() {
+        if (Nce_ce == 0) {
+            ce_ce.textContent = "X"
+            Nce_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_ce.addEventListener("click", Fce_ce)
+    
+    function Fce_dir() {
+        if (Nce_dir == 0) {
+            ce_dir.textContent = "X"
+            Nce_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_dir.addEventListener("click", Fce_dir)
+    
+    //terceira linha
+    function Fba_esq() {
+        if (Nba_esq == 0) {
+            ba_esq.textContent = "X"
+            Nba_esq++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_esq.addEventListener("click", Fba_esq)
+    
+    function Fba_ce() {
+        if (Nba_ce == 0) {
+            ba_ce.textContent = "X"
+            Nba_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_ce.addEventListener("click", Fba_ce)
+    
+    function Fba_dir() {
+        if (Nba_dir == 0) {
+            ba_dir.textContent = "X"
+            Nba_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_dir.addEventListener("click", Fba_dir)
 }
-player2Click()
 
-
-
+//player 2
+function player2() {
+    // primeira linha
+    function Fci_esq() {
+        if (Nci_esq == 0) {
+            ci_esq.textContent = "O"
+            Nci_esq++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ci_esq.addEventListener("click", Fci_esq)
+    
+    function Fci_ce() {
+        if (Nci_ce == 0) {
+            ci_ce.textContent = "O"
+            Nci_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ci_ce.addEventListener("click", Fci_ce)
+    
+    function Fci_dir() {
+        if (Nci_dir == 0) {
+            ci_dir.textContent = "O"
+            Nci_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ci_dir.addEventListener("click", Fci_dir)
+    
+    //segunda linha
+    function Fce_esq() {
+        if (Nce_esq == 0) {
+            ce_esq.textContent = "O"
+            Nce_esq++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_esq.addEventListener("click", Fce_esq)
+    
+    function Fce_ce() {
+        if (Nce_ce == 0) {
+            ce_ce.textContent = "O"
+            Nce_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_ce.addEventListener("click", Fce_ce)
+    
+    function Fce_dir() {
+        if (Nce_dir == 0) {
+            ce_dir.textContent = "O"
+            Nce_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ce_dir.addEventListener("click", Fce_dir)
+    
+    //terceira linha
+    function Fba_esq() {
+        if (Nba_esq == 0) {
+            ba_esq.textContent = "O"
+            Nba_esq++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_esq.addEventListener("click", Fba_esq)
+    
+    function Fba_ce() {
+        if (Nba_ce == 0) {
+            ba_ce.textContent = "O"
+            Nba_ce++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_ce.addEventListener("click", Fba_ce)
+    
+    function Fba_dir() {
+        if (Nba_dir == 0) {
+            ba_dir.textContent = "O"
+            Nba_dir++
+        } else {
+            alert("Botão já precionado")
+        }
+    }
+    ba_dir.addEventListener("click", Fba_dir)
+    
+}
+player2()
 
 //tentativas maximas = 4, se não resultado = velha
 /* 
 vezP1 = 0
 vezP2 = 0
 */
-for(tentativas = 0; tentativas <= 4; tentativas++) {
-    function P1() {
-
+/*
+function ganhador() {
+    // x x x
+    if(Nci_esq > 0 && Nci_ce > 0 && Nci_dir > 0) {
+        console.log("Jogador Ganhou!")
+    } else if (Nce_esq > 0 && Nce_ce > 0 && Nce_dir > 0) {
+        console.log("Jogador Ganhou!")
+    } else if (Nba_esq > 0 && Nba_ce > 0 && Nba_dir > 0) {
+        console.log("Jogador Ganhou!")
+    } else {
+        // x
+        // x
+        // x
+        if(Nci_esq > 0 && Nce_esq > 0 && Nba_esq > 0) {
+            console.log("Jogador Ganhou!")
+        } else if (Nci_ce > 0 && Nci_ce > 0 && Nba_ce > 0) {
+            console.log("Jogador Ganhou!")
+        } else if (Nci_dir > 0 && Nce_dir > 0 && Nba_dir > 0) {
+            console.log("Jogador Ganhou!")
+        } else {
+            // x
+            //  x
+            //   x
+            if (Nci_esq > 0 && Nce_ce > 0 && Nba_dir > 0) {
+                console.log("Jogador Ganhou!")
+            } else if (Nci_dir > 0 && Nce_ce > 0 && Nba_esq > 0) {
+                console.log("Jogador Ganhou!")
+            } 
+        }
     }
 }
+ */
+

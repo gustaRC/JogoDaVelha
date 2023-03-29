@@ -5,41 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1>Jogo da Velha</h1>
-      <div class="pontuacao">
+      <div class="cabecalho">
+        <h1>Jogo da Velha</h1>
+        <hr>
         <h2>Pontuação</h2>
-        <span class="jogador1">
-          <h3>Jogador 1</h3>
-          <p id="pontos1">Pontos: 0</p>
-        </span>
-        <span class="jogador2">
-          <h3>Jogador 2</h3>
-          <p id="pontos2">Pontos: 0</p>
-        </span>
+        <div class="pontuacao">
+          <span class="jogador1">
+            <h3>Jogador 1</h3>
+            <p id="pontos1">Pontos: 0</p>
+          </span>
+          <span class="jogador2">
+            <h3>Jogador 2</h3>
+            <p id="pontos2">Pontos: 0</p>
+          </span>
+        </div>
       </div>
     </header>
+    <section>
+      <div class="jogoVelha">
+          <button id="n1"></button>
+          <button id="n2"></button>
+          <button id="n3"></button>
+          <button id="n4"></button>
+          <button id="n5"></button>
+          <button id="n6"></button>
+          <button id="n7"></button>
+          <button id="n8"></button>
+          <button id="n9"></button>
+      </div>
+    </section>
 
-    <div class="jogoVelha">
-      <div>
-        <button id="ci_esq">ci_esq</button>
-        <button id="ci_ce">ci_ce</button>
-        <button id="ci_dir">ci_dir</button>
-      </div>
-      <div>
-        <button id="ce_esq">ce_esq</button>
-        <button id="ce_ce">ce_ce</button>
-        <button id="ce_dir">ce_dir</button>
-      </div>
-      <div>
-        <button id="ba_esq">ba_esq</button>
-        <button id="ba_ce">ba_ce</button>
-        <button id="ba_dir">ba_dir</button>
-      </div>
-    </div>
-    <a href="base.html">clique aq</a>
+    <footer>
+      <h4>Produzido por:</h4>
+      <h3>Gustavo Rodrigues</h3>
+
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>

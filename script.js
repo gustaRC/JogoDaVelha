@@ -26,6 +26,7 @@ function jogoVelha(id) {
     turno = checarTurno ? jogadorX : jogadorO //se checarTurno for true jogadorX se nn jogadorO
     casa.textContent = turno
     casa.classList.add(turno)
+    casa.setAttribute("disabled", true)
     checarTurno = !checarTurno //alterar ao final o checarTurno para haver a mudança entre X e O
     checarVencedor()
 }

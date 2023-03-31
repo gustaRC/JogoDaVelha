@@ -1,50 +1,37 @@
-let jogador = null;
+//converter objeto em array
+const elementos = document.querySelectorAll("button")
+const casas = Array.from(elementos)
 
-function jogadorAtual(j) {
-  jogador = j;
+const combGanhar = [
+    [n1, n2, n3],
+    [n4, n5, n6],
+    [n7, n8, n9],
+    [n1, n4, n7],
+    [n2, n5, n8],
+    [n3, n6, n9],
+    [n1, n5, n9],
+    [n3, n5, n7]
+]
+
+document.addEventListener("click", (el) => {
+    jogoVelha(el.target.id) //target = retorna o elemento onde ocorreu o evento(w3schools)
+})
+
+let checarTurno = true;
+const jogadorX = "X";
+const jogadorO = "O";
+
+function jogoVelha(id) {
+    const casa = document.getElementById(id)
+    turno = checarTurno ? jogadorX : jogadorO //se checarTurno for true jogadorX se nn jogadorO
+    casa.textContent = turno
+    casa.classList.add(turno)
+    checarTurno = !checarTurno //alterar ao final o checarTurno para haver a mudança entre X e O
+    checarVencedor()
 }
 
-var elementos = document.querySelectorAll("button");
-
-/* 
-vai dar certo com fé em god!!!
-console.log(elementos[0].textContent = "O")
-console.log(elementos[5].innerHTML = "X")
-*/
-
-function inicio() {
-  elementos.innerHTML = "";
+function checarVencedor() {
+    const vencedor = combGanhar.forEach(element => {
+        
+    });    
 }
-inicio();
-
-function alteraConteudo(i) {
-  elementos[i].textContent = valor();
-}
-
-function valor() {
-  if (jogador == "X") {
-    jogador = "O";
-    return "O";
-  } else {
-    jogador = "X";
-    return "X";
-  }
-}
-
-/*
-parte de pressionar o botao:
-ao apertar muda o conteudo, puxa o indice q foi apertado
-armazena em outro array, caso contenha a combinação certa: parabens
-apos apertado o botao tambem remover o indice com as funções de array
-
-
-
-Procurar o índice de um item na Array
-array.indexOf("i")
-
-Remover um item pela posição do índice
-array.splice(i)
-
-pra designar empate:
-if (array.lenght >= 9)
-*/

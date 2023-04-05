@@ -1,15 +1,16 @@
-//converter objeto em array
-const elementos = document.querySelectorAll("button");
-const casas = Array.from(elementos);
-
-let pontosX = document.getElementsByClassName("pontosX");
-let pX = 0;
-let pontosO = document.getElementsByClassName("pontosO");
-let pO = 0;
+// - SCRIPT JOGO DA VELHA - 
 
 document.addEventListener("click", (el) => {
   jogoVelha(el.target.id); //target = retorna o elemento onde ocorreu o evento(w3schools)
 });
+
+let pontosX = document.querySelector(".pontosX");
+let pX = 1;
+let pontosO = document.querySelector(".pontosO");
+let pO = 1;
+
+let txtJogX = document.querySelector(".jogador1 h3")
+let txtJogO = document.querySelector(".jogador2 h3")
 
 let checaTurno = true;
 
@@ -24,90 +25,143 @@ let emp = 0;
 function jogoVelha(id) {
   const casa = document.getElementById(id);
   turno = checaTurno ? jogadorX : jogadorO; //se checarTurno for true jogadorX se nn jogadorO
-  casa.textContent = turno;
   casa.classList.add(turno);
   casa.setAttribute("disabled", true);
-  checaTurno = !checaTurno; //alterar ao final o checarTurno para haver a mudança entre X e O
-
+  checaTurno = !checaTurno; //alterar o boolean do checaTurno para haver a mudança entre X e O    
+    
   //armazenar botões pressionados
   if (document.getElementById(id).className == "X") {
     jogX.push(id);
-    console.log("Jogador X: ", jogX);
   } else if (document.getElementById(id).className == "O") {
     jogO.push(id);
-    console.log("Jogador O: ", jogO);
   }
 
-  //definir vencedor - PLayer X
-  if (jogX.includes("n1") && jogX.includes("n2") && jogX.includes("n3")) {
-    venceu();
-  } else if (
-    jogX.includes("n4") &&
-    jogX.includes("n5") &&
-    jogX.includes("n6")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n7") &&
-    jogX.includes("n8") &&
-    jogX.includes("n9")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n1") &&
-    jogX.includes("n4") &&
-    jogX.includes("n7")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n2") &&
-    jogX.includes("n5") &&
-    jogX.includes("n8")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n3") &&
-    jogX.includes("n6") &&
-    jogX.includes("n9")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n1") &&
-    jogX.includes("n5") &&
-    jogX.includes("n9")
-  ) {
-    console.log("vencedor");
-  } else if (
-    jogX.includes("n3") &&
-    jogX.includes("n5") &&
-    jogX.includes("n7")
-  ) {
-    console.log("vencedor");
-  } else {
-    //empate
-    emp++;
-    if (emp == 9) {
-      alert("Deu Velha!!!");
+  //definir vencedor
+  const jogadores = [jogO, jogX]
+
+  jogadores.forEach(element => {
+    if (
+        element.includes("n1") && 
+        element.includes("n2") &&
+        element.includes("n3")
+    ) {
+        venceu();
+    } else if (
+        element.includes("n4") &&
+        element.includes("n5") &&
+        element.includes("n6")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n7") &&
+        element.includes("n8") &&
+        element.includes("n9")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n1") &&
+        element.includes("n4") &&
+        element.includes("n7")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n2") &&
+        element.includes("n5") &&
+        element.includes("n8")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n3") &&
+        element.includes("n6") &&
+        element.includes("n9")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n1") &&
+        element.includes("n5") &&
+        element.includes("n9")
+    ) {
+        venceu()
+    } else if (
+        element.includes("n3") &&
+        element.includes("n5") &&
+        element.includes("n7")
+    ) {
+        venceu()
+    } else {
+        //empate
+        if(element.length > 2){
+            emp++;
+        }
+        if (emp == 9) {
+            setTimeout(() => {
+                alert("Deu Velha!!!");
+                
+                btn_resetar()
+
+                jogX = [];
+                jogO = [];
+                
+                emp = 0
+            }, 150)
+        }
     }
+  });
+  
+  //O que acontecerá caso haja vencedor
+  function venceu() {
+
+    if (turno == jogadorX) {
+        txtJogX.classList.add("txtJogX")
+        setTimeout(() => {
+            txtJogX.removeAttribute("class")
+        }, 1000)
+    } else {
+        txtJogO.classList.add("txtJogO")
+        setTimeout(() => {
+            txtJogO.removeAttribute("class")
+        }, 1000)
+    }
+
+    
+    let infoVencedor = document.getElementById("ganhador")
+    infoVencedor.classList.add("subir")   
+    infoVencedor.textContent = `Jogador ${turno} Ganhou!!!`
+
+    setTimeout(() => {
+        
+        
+        let alterarPlacar = !checaTurno ? pontosX : pontosO;
+        let alterarPontos = !checaTurno ? pX++ : pO++;
+
+        alterarPlacar.textContent = `Pontos: ${alterarPontos}`;
+        
+        emp = 0
+
+        btn_resetar()
+
+        jogX = [];
+        jogO = [];
+
+        checaTurno = !checaTurno
+
+        infoVencedor.classList.remove("subir")  
+        infoVencedor.textContent = ``  
+        infoVencedor.classList.add("descer")
+        setTimeout(() => {
+            infoVencedor.classList.remove("descer")  
+        }, 300)
+
+    }, 1000);
+    
   }
 
-  function venceu(pontosZ) {
-    setTimeout(() => {
-      alert("Jogador " + turno + " Venceu! Parábens :)");
-    }, 250);
-
-    pX++;
-    pontosX.textContent = `Pontos: ${pX}`;
-
-    // elementos.classList.remove("X");
-    // elementos.classList.remove("O");
-    jogX = [];
-    jogO = [];
-
-    // const resetCasa = document.querySelectorAll(id);
-    // resetCasa.classList.remove("X");
-    // resetCasa.classList.remove("O");
-    // casa.setAttribute("disabled", false);
-    // casa.innerHTML = "";
+  //resetar botoes
+  function btn_resetar() {
+    const childrens = document.getElementsByClassName("jogoVelha")[0].children;
+        for (let children of childrens) {
+            children.removeAttribute("class")
+            children.removeAttribute("disabled")
+        }
   }
 }

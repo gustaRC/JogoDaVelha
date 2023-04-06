@@ -155,12 +155,12 @@ h4{
     color: #7a7a7a;
 }
 
-.jogador1 h3{
+.jogadorX h3{
     color: rgb(43, 121, 145);
     font-family: 'Nunito', sans-serif;
 }
 
-.jogador2 h3{
+.jogadorO h3{
     color: rgb(165, 40, 40);
     font-family: 'Nunito', sans-serif;
 }

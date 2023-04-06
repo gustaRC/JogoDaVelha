@@ -69,13 +69,13 @@ section {
 p{
     margin-top: 5px;
 }
-.jogadorX {
+.jogador1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
 }
-.jogadorO {
+.jogador2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,37 +224,4 @@ h4{
     font-size: 0px;
     background-color: rgb(70, 255, 70);
     color: rgb(4, 92, 51);
-}  
-
-#ganhador.velhaSubir {
-    font-family: 'Nunito', sans-serif;
-    animation-name: baixoPraCima;
-    animation-duration: 0.25s;
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    font-size: 18px;
-    background-color: rgb(243, 255, 70);
-    color: rgb(92, 91, 4);
-}
-
-#ganhador.velhaDescer {
-    font-family: 'Nunito', sans-serif;
-    animation-name: CimaPraBaixo;
-    animation-duration: 0.25s;
-    animation-timing-function: ease-out;
-    width: 100%;
-    height: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    font-size: 0px;
-    background-color: rgb(243, 255, 70);
-    color: rgb(92, 91, 4);
 }

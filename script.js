@@ -9,8 +9,8 @@ let pX = 1;
 let pontosO = document.querySelector(".pontosO");
 let pO = 1;
 
-let txtJogX = document.querySelector(".jogadorX h3")
-let txtJogO = document.querySelector(".jogadorO h3")
+let txtJogX = document.querySelector(".jogador1 h3")
+let txtJogO = document.querySelector(".jogador2 h3")
 
 let checaTurno = true;
 
@@ -21,8 +21,6 @@ let jogX = [];
 let jogO = [];
 
 let emp = 0;
-
-let infoVencedor = document.getElementById("ganhador")
 
 function jogoVelha(id) {
   const casa = document.getElementById(id);
@@ -96,28 +94,20 @@ function jogoVelha(id) {
             emp++;
         }
         if (emp == 9) {
-            infoVencedor.classList.add("velhaSubir")   
-            infoVencedor.textContent = `Deu Velha!`
             setTimeout(() => {
+                alert("Deu Velha!!!");
+                
                 btn_resetar()
 
                 jogX = [];
                 jogO = [];
                 
                 emp = 0
-
-                infoVencedor.classList.remove("velhaSubir")  
-                infoVencedor.textContent = ``  
-                infoVencedor.classList.add("velhaDescer")
-                setTimeout(() => {
-                    infoVencedor.classList.remove("velhaDescer")  
-                }, 300)
-            }, 500)
+            }, 150)
         }
     }
   });
   
-
   //O que acontecerá caso haja vencedor
   function venceu() {
 
@@ -125,14 +115,16 @@ function jogoVelha(id) {
         txtJogX.classList.add("txtJogX")
         setTimeout(() => {
             txtJogX.removeAttribute("class")
-        }, 800)
+        }, 1000)
     } else {
         txtJogO.classList.add("txtJogO")
         setTimeout(() => {
             txtJogO.removeAttribute("class")
-        }, 800)
+        }, 1000)
     }
 
+    
+    let infoVencedor = document.getElementById("ganhador")
     infoVencedor.classList.add("subir")   
     infoVencedor.textContent = `Jogador ${turno} Ganhou!!!`
 
@@ -141,6 +133,7 @@ function jogoVelha(id) {
         
         let alterarPlacar = !checaTurno ? pontosX : pontosO;
         let alterarPontos = !checaTurno ? pX++ : pO++;
+
         alterarPlacar.textContent = `Pontos: ${alterarPontos}`;
         
         emp = 0
@@ -158,7 +151,9 @@ function jogoVelha(id) {
         setTimeout(() => {
             infoVencedor.classList.remove("descer")  
         }, 300)
-    }, 500);
+
+    }, 1000);
+    
   }
 
   //resetar botoes

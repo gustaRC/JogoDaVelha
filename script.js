@@ -9,8 +9,8 @@ let pX = 1;
 let pontosO = document.querySelector(".pontosO");
 let pO = 1;
 
-let txtJogX = document.querySelector(".jogador1 h3")
-let txtJogO = document.querySelector(".jogador2 h3")
+let txtJogX = document.querySelector(".jogadorX h3")
+let txtJogO = document.querySelector(".jogadorO h3")
 
 let checaTurno = true;
 
@@ -21,6 +21,8 @@ let jogX = [];
 let jogO = [];
 
 let emp = 0;
+
+let infoVencedor = document.getElementById("ganhador")
 
 function jogoVelha(id) {
   const casa = document.getElementById(id);
@@ -94,8 +96,9 @@ function jogoVelha(id) {
             emp++;
         }
         if (emp == 9) {
+            infoVencedor.classList.add("velhaSubir")   
+            infoVencedor.textContent = `Deu Velha!`
             setTimeout(() => {
-                alert("Deu Velha!!!");
                 
                 btn_resetar()
 
@@ -103,11 +106,19 @@ function jogoVelha(id) {
                 jogO = [];
                 
                 emp = 0
-            }, 150)
+
+                infoVencedor.classList.remove("velhaSubir")  
+                infoVencedor.textContent = ``  
+                infoVencedor.classList.add("velhaDescer")
+                setTimeout(() => {
+                    infoVencedor.classList.remove("velhaDescer")  
+                }, 300)
+            }, 800)
         }
     }
   });
   
+
   //O que acontecerá caso haja vencedor
   function venceu() {
 
@@ -115,16 +126,14 @@ function jogoVelha(id) {
         txtJogX.classList.add("txtJogX")
         setTimeout(() => {
             txtJogX.removeAttribute("class")
-        }, 1000)
+        }, 800)
     } else {
         txtJogO.classList.add("txtJogO")
         setTimeout(() => {
             txtJogO.removeAttribute("class")
-        }, 1000)
+        }, 800)
     }
 
-    
-    let infoVencedor = document.getElementById("ganhador")
     infoVencedor.classList.add("subir")   
     infoVencedor.textContent = `Jogador ${turno} Ganhou!!!`
 
@@ -152,7 +161,7 @@ function jogoVelha(id) {
             infoVencedor.classList.remove("descer")  
         }, 300)
 
-    }, 1000);
+    }, 500);
     
   }
 

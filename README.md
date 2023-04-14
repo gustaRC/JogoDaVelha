@@ -4,8 +4,9 @@
 <h2 style="text-align: center;" ><strong> <img src="./imgs/js.png" alt="js_icon">  Teste JavaScript - Jogo da Velha</strong></h2>
 <br>
 <div style="display:flex; justify-content: center">
-<img src="./imgs/JogoDaVelha.png" alt="jogoDaVelha" style="width:300px">
+<a href="https://gustarc.github.io/Teste_JogoDaVelha/"><img src="./imgs/JogoDaVelha.png" alt="jogoDaVelha" style="width:300px"></a>
 </div>
+<a href="https://gustarc.github.io/Teste_JogoDaVelha/">Link do Jogo!</a>
 
 
 <br>

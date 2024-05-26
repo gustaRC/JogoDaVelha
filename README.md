@@ -1,4 +1,4 @@
-# Teste_JogoDaVelha
+# Proejto Jogo Da Velha
 <meta charset="UTF-8">
 
 <h2 style="text-align: center;" ><strong> <img src="./imgs/js.png" alt="js_icon">  Teste JavaScript - Jogo da Velha</strong></h2>
